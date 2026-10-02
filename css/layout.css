@@ -1679,6 +1679,14 @@
 }
 
 
+@media (max-width: 1279px) {
+    .main-nav-137e4e1d .nav-logo-137e4e1d img {
+        max-width: 120px;
+        height: auto;
+    }
+}
+
+
 
 
 @media (min-width: 1280px) {

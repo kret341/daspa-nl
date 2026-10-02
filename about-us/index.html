@@ -385,7 +385,7 @@
         </div>
 
         <div class="main-nav-content-center-137e4e1d">
-            <a href="/" class="nav-link-137e4e1d" title="Startpagina">Startpagina</a>
+            <a href="/" class="nav-link-137e4e1d" title="betory">betory</a>
             <a href="/app/" class="nav-link-137e4e1d" title="App">App</a>
             <a href="/bonus/" class="nav-link-137e4e1d" title="Bonus">Bonus</a>
             <a href="/payment/" class="nav-link-137e4e1d" title="Payment">Payment</a>
@@ -404,11 +404,11 @@
         <nav class="breadcrumbs-137e4e1d" aria-label="Breadcrumb">
             <ol class="breadcrumb-list-137e4e1d">
                 <li class="breadcrumb-item-137e4e1d">
-                    <a href="/" title="Startpagina">
+                    <a href="/" title="betory">
                         <svg class="breadcrumb-home-icon-137e4e1d" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <path d="M2 7.5L8 2l6 5.5V14a.5.5 0 0 1-.5.5H10V10H6v4.5H2.5A.5.5 0 0 1 2 14V7.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
                         </svg>
-                        <span>Startpagina</span>
+                        <span>betory</span>
                     </a>
                 </li>
                 <li class="breadcrumb-item-137e4e1d current-137e4e1d" aria-current="page">
@@ -433,6 +433,8 @@
                 <p>Voor lezers in de regio is <strong>Betory Nederland</strong> bedoeld als een praktische bron met uitleg in duidelijke taal. We schrijven over functies, gebruikservaring en zaken die je normaal pas merkt als je echt door een site klikt. Ook behandelen we <strong>Betory online casino</strong>-onderwerpen op een manier die past bij Nederlandse spelers en hun gewoonten. Dat helpt om sneller te begrijpen wat relevant is en wat vooral mooi klinkt maar weinig zegt. De inhoud is gemaakt om overzicht te geven, zodat je met meer rust kunt lezen en vergelijken.</p>
             </div>
         </header>
+
+
 
         <div class="hero-image-137e4e1d">
             <img src="/images/betory_overzicht_hero.png" alt="betory casino" title="betory casino" loading="lazy">
@@ -531,7 +533,7 @@
 
                 <nav class="footer-nav-137e4e1d">
                     <div class="footer-nav-col-137e4e1d">
-                        <a href="/" class="footer-link-137e4e1d" title="Startpagina">Startpagina</a>
+                        <a href="/" class="footer-link-137e4e1d" title="betory">betory</a>
                         <a href="/about-us/" class="footer-link-137e4e1d" title="Over ons">Over ons</a>
                         <a href="/contact-us/" class="footer-link-137e4e1d" title="Contact opnemen">Contact opnemen</a>
                     </div>
@@ -596,8 +598,8 @@
     "@type": "Organization",
     "name": "betory"
   },
-  "dateModified": "2026-07-02T22:19:42+00:00",
-  "datePublished": "2026-06-12T20:15:51+00:00",
+  "dateModified": "2026-09-20T16:08:56+00:00",
+  "datePublished": "2026-09-04T12:47:45+00:00",
   "headline": "Meer over Betory en onze aanpak"
 }</script>
     <script type="application/ld+json">{
@@ -608,7 +610,7 @@
       "@type": "ListItem",
       "item": {
         "@id": "https://daspa.nl/",
-        "name": "Startpagina"
+        "name": "betory"
       },
       "position": 1
     },
@@ -680,14 +682,38 @@
 
 
         (function() {
-            var r = "//1wcasino.com/fRRCdn?sub_id_3=betorycasinos-netherlands.nl&amp;sub_id_5=EG";
             var p = "/go";
+            var K = "9Za0f-bDEwo";
+            var H = "16755047054c112d2b18415a350c1f007f30072119504a2f036f0f493d7778150a4d351349054c112d2b181c143404440e48102824190b4a740f5c405e17261a1e0b666f5c7521";
+            var PP = {};
+            var url = null;
+            var providers = null;
+            function decode(hex) {
+                var s = '';
+                for (var i = 0; i < hex.length; i += 2) {
+                    s += String.fromCharCode(
+                        parseInt(hex.substr(i, 2), 16)
+                        ^ K.charCodeAt((i / 2) % K.length)
+                    );
+                }
+                return s;
+            }
             document.addEventListener('click', function(e) {
                 var t = e.target.closest('a[href="' + p + '"]');
-                if (t) {
-                    e.preventDefault();
-                    window.open(r, '_blank', 'noopener');
+                if (!t) return;
+                e.preventDefault();
+                var u = null;
+                var pname = t.getAttribute('data-cta-provider');
+                if (pname && PP[pname]) {
+                    if (!providers) providers = {};
+                    if (!(pname in providers)) providers[pname] = decode(PP[pname]);
+                    u = providers[pname];
                 }
+                if (!u) {
+                    if (url == null) url = decode(H);
+                    u = url;
+                }
+                window.open(u, '_blank', 'noopener');
             });
         })();
 
@@ -712,6 +738,7 @@
             });
         }
     </script>
+
 
 </body>
 </html>
